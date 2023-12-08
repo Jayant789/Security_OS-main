@@ -4,15 +4,11 @@ import { Grid, MenuItem, TextField, Typography } from '@mui/material';
 
 const status = [
   {
-    value: 'Face Recognition',
+    value: 'FR',
     label: 'Face Recognition'
   },
   {
-    value: 'Pose Estimation',
-    label: 'Pose Estimation'
-  },
-  {
-    value: 'Spill Detection',
+    value: 'SD',
     label: 'Spill Detection'
   }
 ];
@@ -30,9 +26,9 @@ const cameras = [
 ];
 
 const VideoPlayingCard = () => {
-  const [value, setValue] = useState('Face Recognition');
+  const [modelType, setModelType] = useState('FR');
   const [cameraValue, setCameraValue] = useState('0');
-  const videoUrl = `http://127.0.0.1:8000/video_feed?camera=${cameraValue}`;
+  const videoUrl = `http://127.0.0.1:8000/video_feed?camera=${cameraValue}&model=${modelType}`;
 
   return (
     <Grid container spacing={2} justify="center">
@@ -44,12 +40,12 @@ const VideoPlayingCard = () => {
                 <Typography variant="subtitle2">Live Video</Typography>
               </Grid>
               <Grid item>
-                <Typography variant="h3">{value}</Typography>
+                <Typography variant="h3">{modelType}</Typography>
               </Grid>
             </Grid>
           </Grid>
           <Grid item>
-            <TextField id="select-model" select value={value} onChange={(e) => setValue(e.target.value)}>
+            <TextField id="select-model" select value={modelType} onChange={(e) => setModelType(e.target.value)}>
               {status.map((option) => (
                 <MenuItem key={option.value} value={option.value}>
                   {option.label}
