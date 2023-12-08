@@ -28,7 +28,7 @@ const cameras = [
 const VideoPlayingCard = () => {
   const [modelType, setModelType] = useState('FR');
   const [cameraValue, setCameraValue] = useState('0');
-  const videoUrl = `http://127.0.0.1:8000/video_feed?camera=${cameraValue}&model=${modelType}`;
+  const selectedModel = status.find((option) => option.value === modelType);
 
   return (
     <Grid container spacing={2} justify="center">
@@ -40,7 +40,7 @@ const VideoPlayingCard = () => {
                 <Typography variant="subtitle2">Live Video</Typography>
               </Grid>
               <Grid item>
-                <Typography variant="h3">{modelType}</Typography>
+                <Typography variant="h3">{selectedModel ? selectedModel.label : ''}</Typography>
               </Grid>
             </Grid>
           </Grid>
@@ -69,7 +69,7 @@ const VideoPlayingCard = () => {
           title="Video Player"
           width="100%"
           height="400"
-          src={videoUrl}
+          src={`http://127.0.0.1:8000/video_feed?camera=${cameraValue}&model=${modelType}`}
           frameBorder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowFullScreen
