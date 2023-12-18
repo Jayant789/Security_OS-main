@@ -102,7 +102,7 @@ function Suspects() {
 
     const intervalId = setInterval(() => {
       fetchData(); // Fetch data every 10 seconds
-    }, 100000000000000000);
+    }, 100000000000000000000000);
 
     // Clear the interval when the component is unmounted
     return () => clearInterval(intervalId);

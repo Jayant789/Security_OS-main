@@ -10,6 +10,10 @@ const status = [
   {
     value: 'SD',
     label: 'Spill Detection'
+  },
+  {
+    value: 'ANPR',
+    label: 'Number Plate Recognition'
   }
 ];
 

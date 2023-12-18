@@ -23,7 +23,7 @@ const propertyCrimeIcon = new Icon({
   iconSize: [38, 38]
 });
 
-const center = [54.21133309402026, -2.830688497073126];
+const center = [38.1733, -98.8550];
 
 const MapComponent = () => {
   const [crimeData, setCrimeData] = useState([]);
@@ -38,7 +38,7 @@ const MapComponent = () => {
       <p>Live Crime</p>
       <h2>Crime Map</h2>
       <div>
-        <MapContainer center={center} zoom={5} scrollWheelZoom={false} style={{ width: '100%', height: '400px' }}>
+        <MapContainer center={center} zoom={4} scrollWheelZoom={false} style={{ width: '100%', height: '400px' }}>
           <TileLayer
             url="https://{s}.tile.jawg.io/jawg-dark/{z}/{x}/{y}{r}.png?access-token=FwNOKzxYb9NnS1CG9U9F7QdeDCRBQWclv6UABZXtfSB71oZcsrZgJqhhSYlMGfYI"
             attribution='<a href="http://jawg.io" title="Tiles Courtesy of Jawg Maps" target="_blank">&copy; <b>Jawg</b>Maps</a> &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
